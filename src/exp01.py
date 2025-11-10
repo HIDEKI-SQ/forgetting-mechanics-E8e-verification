@@ -66,4 +66,32 @@ S, labels = generate_semantics(N_NODES, dim=SEM_DIM, n_clusters=N_CLUSTERS, clus
 P_spatial = ring_positions(N_NODES)
 order_spatial = np.arange(N_NODES)
 P_random = random_positions(N_NODES)
-order_random = path_order_b_
+order_random = path_order_by_angle(P_random)
+
+SP_spa = sp_path_smoothness(P_spatial, order_spatial)
+GEN_spa = gen_uniformity(P_spatial)
+VS_spa = vs_spearman_semantic_spatial(S, P_spatial)
+
+SP_rnd = sp_path_smoothness(P_random, order_random)
+GEN_rnd = gen_uniformity(P_random)
+VS_rnd = vs_spearman_semantic_spatial(S, P_random)
+
+df = pd.DataFrame([
+    {"Condition": "spatial", "SP": SP_spa, "GEN": GEN_spa, "VS": VS_spa},
+    {"Condition": "random", "SP": SP_rnd, "GEN": GEN_rnd, "VS": VS_rnd},
+])
+print("=== E8 EXP1 Metrics ===")
+print(df.to_string(index=False))
+df.to_csv(f"{OUTDIR}/E8_exp1_metrics.csv", index=False)
+
+fig, ax = plt.subplots(1, 3, figsize=(10, 3.6))
+for j, (metric, ylim) in enumerate([("SP", (0, 1)), ("GEN", (0, 1)), ("VS", (-0.3, 0.3))]):
+    ax[j].bar(["spatial", "random"], [df.loc[0, metric], df.loc[1, metric]])
+    ax[j].set_title(metric)
+    ax[j].set_ylim(ylim)
+    ax[j].grid(alpha=0.3, linestyle=":")
+fig.suptitle("E8-Exp1: Spatial vs Random (SP/GEN/VS)", y=1.03, fontsize=12)
+plt.tight_layout()
+plt.savefig(f"{OUTDIR}/fig_E8_exp1_baseline.png", dpi=200, bbox_inches="tight")
+plt.show()
+

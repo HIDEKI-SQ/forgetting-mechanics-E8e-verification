@@ -1,1 +1,11 @@
+{
+  "title": "E8e — Code Validity Verification",
+  "description": "Reproducibility tests and verification harness for the E8 series.",
+  "creators": [
+    {"name": "HIDEKI", "orcid": "0009-0002-0019-6608"}
+  ],
+  "license": "MIT",
+  "access_right": "open",
+  "keywords": ["E8e", "reproducibility", "verification", "Optics of Intelligence"]
+}
 

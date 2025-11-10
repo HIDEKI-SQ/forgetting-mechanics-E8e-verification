@@ -1,5 +1,8 @@
 # E8e — Code Validity Verification (Skeleton)
 
+[![E8e Verification](https://github.com/HIDEKI-SQ/forgetting-mechanics-E8e-verification/actions/workflows/test.yml/badge.svg)](../../actions)
+
+
 このリポジトリは **E8e: コード妥当性の検証** のための最小骨格です。  
 **ポイント**：実験コードは *そのまま* `src/` に貼り付け、テストは *外側* の `tests/` が行います（原コードは変更しません）。
 

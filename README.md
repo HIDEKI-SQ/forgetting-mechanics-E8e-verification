@@ -46,3 +46,8 @@ pytest -q
 - **経験的一致**：O1〜O4 に対応する“符号・傾向”が崩れていないか（厳密な閾値は課さない）。
 
 > 注：この骨格は **E8e（忠実保存）** 用です。改良版は **E8f** として別ブランチ/別リポジトリで育ててください。
+
+## Verification Protocol (Browser only)
+- Actionsタブ → **Run workflow** で自動検証（pytest）。
+- 期待結果：badge が ✓ / Actions が green。
+- 検証対象：不変量・交差実装（ravel vs condensed）・経験的性質（O1）。

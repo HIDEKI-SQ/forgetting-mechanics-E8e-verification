@@ -1,0 +1,9 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "e8e-verification"
+version = "0.0.1"
+description = "E8e: Verification harness for code validity (skeleton)"
+requires-python = ">=3.9"
